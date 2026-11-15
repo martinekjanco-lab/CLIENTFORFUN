@@ -19,9 +19,6 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
-    defaults:
-      run:
-        working-directory: vapelike
     steps:
       - uses: actions/checkout@v4
 
@@ -35,7 +32,6 @@ jobs:
         uses: gradle/actions/setup-gradle@v4
         with:
           gradle-version: 9.2.1
-          build-root-directory: vapelike
 
       - name: Build
         run: gradle build --no-daemon
@@ -45,8 +41,8 @@ jobs:
         with:
           name: vapelike-mod
           path: |
-            vapelike/build/libs/*.jar
-            !vapelike/build/libs/*-sources.jar
+            build/libs/*.jar
+            !build/libs/*-sources.jar
           if-no-files-found: error
 
       - name: Create GitHub release (on tag)
@@ -54,5 +50,5 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           files: |
-            vapelike/build/libs/*.jar
-            !vapelike/build/libs/*-sources.jar
+            build/libs/*.jar
+            !build/libs/*-sources.jar
