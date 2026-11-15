@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "id": "vapelike",
+  "version": "${version}",
+  "name": "VapeLike (Singleplayer)",
+  "description": "Singleplayer-only utility client with a Vape V4 style click GUI. Press Right Shift.",
+  "authors": ["you"],
+  "license": "MIT",
+  "environment": "client",
+  "entrypoints": {
+    "client": ["dev.vapelike.VapeLikeClient"]
+  },
+  "depends": {
+    "fabricloader": ">=0.18.1",
+    "minecraft": "~1.21.11",
+    "java": ">=21",
+    "fabric-api": "*"
+  }
+}
